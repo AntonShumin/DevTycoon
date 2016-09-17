@@ -10,8 +10,10 @@ public class script_orbit : MonoBehaviour {
     public bool auto_orbit = false;
     //drag rotation
     public int drag_speed = 300;
+    public float drag_value = 0;
+    public float drag_decay = 0;
     public bool mouse_pressed = false;
-    private Vector3 drag_vector = new Vector3();
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -40,24 +42,15 @@ public class script_orbit : MonoBehaviour {
             {
                 //float rotX = Input.GetAxis("Mouse X") * drag_speed * Mathf.Deg2Rad;
                 float rotation_y = Camera.main.transform.rotation.eulerAngles.y;
-                float rotation_y_adjusted = rotation_y;
-                
-                if(rotation_y > 180)
-                {
-                    rotation_y_adjusted -= 180 ;
-                    
-                }
-                if (rotation_y_adjusted > 90)
-                {
-                    rotation_y_adjusted = 180 - rotation_y_adjusted;
-                }
-                
-                Debug.Log(rotation_y_adjusted);
+                float rotation_y_adjusted = rotation_y;            
 
                 float input_X = Input.GetAxis("Mouse X") * drag_speed * Time.deltaTime;
-                float input_Y = Input.GetAxis("Mouse Y") * drag_speed * Time.deltaTime;
+                drag_value += input_X;
+                Debug.Log(drag_value);
+                float input_Y = Input.GetAxis("Mouse Y") * drag_speed * Time.deltaTime / 2;
                 Camera.main.transform.RotateAround(target.transform.position, Vector3.up, input_X);
-                Camera.main.transform.RotateAround(target.transform.position, Vector3.left, input_Y);
+                Camera.main.transform.RotateAround(target.transform.position, Camera.main.transform.right, -1*input_Y);
+
 
             }
         }
