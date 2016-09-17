@@ -11,13 +11,14 @@ public class script_orbit : MonoBehaviour {
     //drag rotation
     public int drag_speed = 300;
     public bool mouse_pressed = false;
+    private Vector3 drag_vector = new Vector3();
 	
 	// Update is called once per frame
 	void Update () {
 	
         if(target != null)
         {
-            Camera.main.transform.LookAt(target.transform);
+            //Camera.main.transform.LookAt(target.transform);
 
             if(auto_orbit)
             {
@@ -37,22 +38,30 @@ public class script_orbit : MonoBehaviour {
 
             if (mouse_pressed)
             {
-                float rotX = Input.GetAxis("Mouse X") * drag_speed * Mathf.Deg2Rad;
-                float rotY = Input.GetAxis("Mouse Y") * drag_speed * Mathf.Deg2Rad;
-                //Camera.main.transform.RotateAround(target.transform.position, Vector3.up, rotX);
-                Camera.main.transform.RotateAround(target.transform.position, Vector3.right, -rotY);
+                //float rotX = Input.GetAxis("Mouse X") * drag_speed * Mathf.Deg2Rad;
+                float rotation_y = Camera.main.transform.rotation.eulerAngles.y;
+                float rotation_y_adjusted = rotation_y;
+                
+                if(rotation_y > 180)
+                {
+                    rotation_y_adjusted -= 180 ;
+                    
+                }
+                if (rotation_y_adjusted > 90)
+                {
+                    rotation_y_adjusted = 180 - rotation_y_adjusted;
+                }
+                
+                Debug.Log(rotation_y_adjusted);
+
+                float input_X = Input.GetAxis("Mouse X") * drag_speed * Time.deltaTime;
+                float input_Y = Input.GetAxis("Mouse Y") * drag_speed * Time.deltaTime;
+                Camera.main.transform.RotateAround(target.transform.position, Vector3.up, input_X);
+                Camera.main.transform.RotateAround(target.transform.position, Vector3.left, input_Y);
+
             }
         }
 
 	}
-
-    void OnMouseDragss()
-    {
-        Debug.Log("test");
-        float rotX = Input.GetAxis("Mouse X") * drag_speed * Mathf.Deg2Rad;
-        Debug.Log(rotX);
-        
-
-    }
 
 }
