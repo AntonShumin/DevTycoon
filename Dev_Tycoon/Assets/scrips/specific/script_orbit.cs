@@ -49,20 +49,14 @@ public class script_orbit : MonoBehaviour {
 
             if (mouse_pressed)
             {
-                setDragX(Input.GetAxis("Mouse X")); 
-                float input_X = Input.GetAxis("Mouse X") * Time.deltaTime;
-                if(Mathf.Abs(drag_value_x) < drag_limit) drag_value_x += input_X;
-
-                float input_Y = Input.GetAxis("Mouse Y") * Time.deltaTime * -1;
-                if (Mathf.Abs(drag_value_y) < drag_limit)  drag_value_y += input_Y;
+                setDragX(Input.GetAxis("Mouse X"));
+                setDragY(Input.GetAxis("Mouse Y"));
             }
 
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
             {
-                Vector2 touch_vector = Input.GetTouch(0).deltaPosition;
-                float input_X = touch_vector[0] * Time.deltaTime /10;
-                if (Mathf.Abs(drag_value_x) < drag_limit) drag_value_x += input_X;
-                Debug.Log(touch_vector[0]);
+                setDragX(Input.GetTouch(0).deltaPosition.x / 20);
+                setDragY(Input.GetTouch(0).deltaPosition.y / 20);
             }
 
             if(Mathf.Abs(drag_value_x) > 0 || Mathf.Abs(drag_value_y) > 0)
@@ -114,13 +108,13 @@ public class script_orbit : MonoBehaviour {
     private void setDragX(float strength)
     {
         float input_X = strength * Time.deltaTime;
-        if (Mathf.Abs(drag_value_x) < drag_limit) drag_value_x += input_X;
+        if (Mathf.Abs(drag_value_x) < drag_limit || Mathf.Sign(strength) != Mathf.Sign(drag_value_x)) drag_value_x += input_X;
     }
 
     private void setDragY(float strength)
     {
         float input_Y = strength * Time.deltaTime * -1;
-        if (Mathf.Abs(drag_value_y) < drag_limit) drag_value_y += input_Y;
+        if (Mathf.Abs(drag_value_y) < drag_limit || Mathf.Sign(strength) != Mathf.Sign(drag_value_y)) drag_value_y += input_Y;
     }
 
 }
