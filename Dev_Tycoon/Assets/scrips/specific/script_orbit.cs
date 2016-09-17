@@ -20,7 +20,8 @@ public class script_orbit : MonoBehaviour {
 
     void Awake()
     {
-        Application.targetFrameRate = 20;
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 40;
     }
 
     // Update is called once per frame
@@ -48,17 +49,20 @@ public class script_orbit : MonoBehaviour {
 
             if (mouse_pressed)
             {
-                //float rotX = Input.GetAxis("Mouse X") * drag_speed * Mathf.Deg2Rad;       
-
-                float input_X = Input.GetAxis("Mouse X") * Time.deltaTime * 2;
+                setDragX(Input.GetAxis("Mouse X")); 
+                float input_X = Input.GetAxis("Mouse X") * Time.deltaTime;
                 if(Mathf.Abs(drag_value_x) < drag_limit) drag_value_x += input_X;
-
 
                 float input_Y = Input.GetAxis("Mouse Y") * Time.deltaTime * -1;
                 if (Mathf.Abs(drag_value_y) < drag_limit)  drag_value_y += input_Y;
+            }
 
-
-
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+            {
+                Vector2 touch_vector = Input.GetTouch(0).deltaPosition;
+                float input_X = touch_vector[0] * Time.deltaTime /10;
+                if (Mathf.Abs(drag_value_x) < drag_limit) drag_value_x += input_X;
+                Debug.Log(touch_vector[0]);
             }
 
             if(Mathf.Abs(drag_value_x) > 0 || Mathf.Abs(drag_value_y) > 0)
@@ -105,6 +109,18 @@ public class script_orbit : MonoBehaviour {
             }
         }
         return drag_value;
+    }
+
+    private void setDragX(float strength)
+    {
+        float input_X = strength * Time.deltaTime;
+        if (Mathf.Abs(drag_value_x) < drag_limit) drag_value_x += input_X;
+    }
+
+    private void setDragY(float strength)
+    {
+        float input_Y = strength * Time.deltaTime * -1;
+        if (Mathf.Abs(drag_value_y) < drag_limit) drag_value_y += input_Y;
     }
 
 }
