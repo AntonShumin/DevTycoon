@@ -9,7 +9,8 @@ public class script_messageCenter : MonoBehaviour {
 
     //Pool
     public int pooledAmount = 11;
-    List<GameObject> items_list;
+    List<GameObject> items_list = new List<GameObject>();
+    private int randomCount = 0;
 
 
     void Start()
@@ -21,26 +22,36 @@ public class script_messageCenter : MonoBehaviour {
     {
         for (int i = 0; i < pooledAmount; i++)
         {
-            new_item("", "");
+            new_item();
         }
     }
 
-    public void create_item()
-    {
-        new_item("HUD ITEM", "H");
-    }
-
-    private void new_item(string para_text, string para_letter)
+    private void new_item()
     {
         GameObject item = Instantiate(item_prefab, grid.transform, false) as GameObject;
-        item.transform.SetAsFirstSibling();
-        item.GetComponent<script_messageItem>().set_item(para_text,para_letter);
+        
         items_list.Add(item);
         item.SetActive(false);
     }
 
     public void set_item(string para_text, string para_letter)
     {
+        foreach(GameObject item in items_list)
+        {
+            if(!item.activeInHierarchy)
+            {
+                item.GetComponent<script_messageItem>().set_item(para_text, para_letter);
+                item.transform.SetAsFirstSibling();
+                item.SetActive(true);
+                grid.transform.GetChild(grid.transform.childCount - 1).gameObject.SetActive(false);
+                break;
+            }
+        }
+    }
 
+    public void test_set()
+    {
+        randomCount++;
+        set_item("hello world " + randomCount, "XYZ");
     }
 }
