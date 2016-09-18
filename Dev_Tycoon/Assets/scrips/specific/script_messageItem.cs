@@ -16,4 +16,9 @@ public class script_messageItem : MonoBehaviour {
         text.GetComponent<Text>().text = para_text;
         letter.GetComponent<Text>().text = para_letter;
     }
+
+    public void clicked()
+    {
+        Debug.Log("clicked");
+    }
 }
