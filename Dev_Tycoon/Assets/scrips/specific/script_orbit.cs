@@ -20,6 +20,7 @@ public class script_orbit : MonoBehaviour {
 
     void Awake()
     {
+        Debug.Log("screen_orbit limit FPS");
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 40;
     }
@@ -55,8 +56,10 @@ public class script_orbit : MonoBehaviour {
 
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
             {
-                setDragX(Input.GetTouch(0).deltaPosition.x / 20);
-                setDragY(Input.GetTouch(0).deltaPosition.y / 20);
+                //Debug.Log(Screen.height);
+                //Debug.Log(Input.GetTouch(0).deltaPosition.magnitude);
+                setDragX(Input.GetTouch(0).deltaPosition.x /15);
+                setDragY(Input.GetTouch(0).deltaPosition.y /15);
             }
 
             if(Mathf.Abs(drag_value_x) > 0 || Mathf.Abs(drag_value_y) > 0)
