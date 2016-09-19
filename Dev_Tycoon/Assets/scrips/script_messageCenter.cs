@@ -12,10 +12,15 @@ public class script_messageCenter : MonoBehaviour {
     List<GameObject> items_list = new List<GameObject>();
     private int randomCount = 0;
 
+    void Awake()
+    {
+        script_GameManager.Instance.setup_objects(1, gameObject);
+        pupulateList();
+    }
 
     void Start()
     {
-        pupulateList();
+        
     }
 
     private void pupulateList()
@@ -36,9 +41,10 @@ public class script_messageCenter : MonoBehaviour {
 
     public void set_item(string para_text, string para_letter)
     {
+        
         foreach(GameObject item in items_list)
         {
-            if(!item.activeInHierarchy)
+            if (!item.activeInHierarchy)
             {
                 item.GetComponent<script_messageItem>().set_item(para_text, para_letter);
                 item.transform.SetAsFirstSibling();
