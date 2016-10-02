@@ -5,6 +5,7 @@ public class script_GameManager : script_singleton<script_GameManager> {
 
     public script_gameEvents o_EventsManager;
     public script_messageCenter o_MessageManager;
+    public script_ui o_ui;
 
     public void setup_objects(int index, GameObject go)
     {
@@ -15,6 +16,9 @@ public class script_GameManager : script_singleton<script_GameManager> {
                 break;
             case 1:
                 o_MessageManager = go.GetComponent<script_messageCenter>();
+                break;
+            case 2:
+                o_ui = go.GetComponent<script_ui>();
                 break;
         }
     }

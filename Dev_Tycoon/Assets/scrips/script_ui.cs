@@ -6,7 +6,14 @@ public class script_ui : MonoBehaviour {
 
     private bool lower_frame_visible = false;
     private bool lower_frame_inTransition = false;
+
     public GameObject lower_frame;
+    public script_upperFrame upper_frame;
+
+    void Awake()
+    {
+        script_GameManager.Instance.setup_objects(2, gameObject);
+    }
 
 	public void lower_frame_toggle()
     {

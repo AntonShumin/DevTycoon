@@ -22,6 +22,7 @@ public class script_calendar : MonoBehaviour {
     private IEnumerator tik_tok()
     {
         string date_string = "";
+        script_ui o_ui = script_GameManager.Instance.o_ui;
         while (true)
         {
             yield return new WaitForSeconds(day_tick);
