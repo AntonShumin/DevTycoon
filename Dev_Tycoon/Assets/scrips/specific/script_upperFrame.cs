@@ -11,4 +11,9 @@ public class script_upperFrame : MonoBehaviour {
     {
         text_date = o_date.GetComponent<Text>();
     }
+
+    public void set_date(string para1)
+    {
+        text_date.text = para1;
+    }
 }

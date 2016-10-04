@@ -7,10 +7,14 @@ public class script_calendar : MonoBehaviour {
     public int[] date_days = new int[12];
     public float day_tick = 1f;
     
+    //calendar vars
     private bool time_running = false;
     private int current_month = 0;
-    private int current_day = 1;
+    private int current_day = 0;
     private int current_year = 1996;
+
+    //dev weeks timer
+    private 
 
 
 	// Use this for initialization
@@ -22,7 +26,8 @@ public class script_calendar : MonoBehaviour {
     private IEnumerator tik_tok()
     {
         string date_string = "";
-        script_ui o_ui = script_GameManager.Instance.o_ui;
+        string date_prefix = "";
+        script_upperFrame o_upperFrame = script_GameManager.Instance.o_ui.upper_frame;
         while (true)
         {
             yield return new WaitForSeconds(day_tick);
@@ -35,7 +40,10 @@ public class script_calendar : MonoBehaviour {
                     current_month++;
                     if (current_month > 11) current_month = 0;
                 }
-                date_string = "Y"+current_year+" "+date_month[current_month]+" "+current_day;
+                date_prefix = current_day < 10 ? "0" : "";
+                date_string = "Y"+current_year+" "+date_month[current_month] + " " + date_prefix + current_day;
+                //script_GameManager.Instance.o_ui.upper_frame.set_date(date_string);
+                o_upperFrame.set_date(date_string);
                 Debug.Log(date_string);
             }
                                                    
