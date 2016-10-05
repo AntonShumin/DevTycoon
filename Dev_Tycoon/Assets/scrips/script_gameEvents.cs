@@ -30,5 +30,10 @@ public class script_gameEvents : MonoBehaviour {
 
     }
 
+    public void project_progress(float progress)
+    {
+
+    }
+
 
 }

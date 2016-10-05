@@ -17,6 +17,7 @@ public class script_calendar : MonoBehaviour {
     private float project_day_count;
     private int project_day_max = 60;
     private bool project_running = false;
+    private float project_progress_segment = 25f;
 
 
 	// Use this for initialization
@@ -56,7 +57,15 @@ public class script_calendar : MonoBehaviour {
                     project_day_count += day_tick;
                     project_week = Mathf.Floor(project_day_count / 7);
                     project_progress = Mathf.Round((float)project_day_count / (float)project_day_max * 100);
-                    if (project_progress > 100) project_progress = 100; 
+                    if (project_progress > 100) project_progress = 100;
+                    if(project_progress_segment <= 100)
+                    {
+                        if(project_progress >= project_progress_segment)
+                        {
+
+                            project_progress_segment += 25;
+                        }
+                    }
                     o_upperFrame.set_project_date(project_progress,project_week);
                 }
             }
