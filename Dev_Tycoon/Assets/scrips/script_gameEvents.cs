@@ -5,6 +5,7 @@ public class script_gameEvents : MonoBehaviour {
 
     private string[,] messages = new string[1,2];
 
+
     void Awake()
     {
         script_GameManager.Instance.setup_objects(0,gameObject);

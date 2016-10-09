@@ -73,4 +73,10 @@ public class script_calendar : MonoBehaviour {
         }
     }
 
+    public void pause_calendar()
+    {
+        time_running = false;
+
+    }
+
 }
