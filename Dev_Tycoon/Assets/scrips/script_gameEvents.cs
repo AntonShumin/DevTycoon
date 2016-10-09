@@ -8,7 +8,6 @@ public class script_gameEvents : MonoBehaviour {
 
     void Awake()
     {
-        script_GameManager.Instance.setup_objects(0,gameObject);
         setup_messages();
     }
 

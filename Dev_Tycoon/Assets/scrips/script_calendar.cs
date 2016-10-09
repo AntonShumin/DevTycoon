@@ -62,11 +62,7 @@ public class script_calendar : MonoBehaviour {
                     {
                         if(project_progress >= project_progress_segment)
                         {
-                            //script_GameManager.Instance.manager_gm.events.project_progress(project_progress_segment);
-                            if (script_GameManager.Instance)
-                            {
-                                Debug.Log("works");
-                            }
+                            script_GameManager.Instance.manager_gm.events.project_progress(project_progress_segment);
                             project_progress_segment += 25;
                         }
                     }

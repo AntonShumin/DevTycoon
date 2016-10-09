@@ -14,7 +14,6 @@ public class script_messageCenter : MonoBehaviour {
 
     void Awake()
     {
-        script_GameManager.Instance.setup_objects(1, gameObject);
         pupulateList();
     }
 

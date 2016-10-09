@@ -8,6 +8,7 @@ public class script_GameManager : script_singleton<script_GameManager> {
 
     public void setup_objects(int index, GameObject go)
     {
+        Debug.Log("I am" + go.name);
         switch (index)
         {
             case 0:
