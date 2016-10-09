@@ -10,6 +10,9 @@ public class script_ui : MonoBehaviour {
     public GameObject lower_frame;
     public script_upperFrame upper_frame;
 
+    public GameObject o_center_frame;
+    public script_centerFrame center_frame;
+
     void Awake()
     {
         script_GameManager.Instance.setup_objects(2, gameObject);
