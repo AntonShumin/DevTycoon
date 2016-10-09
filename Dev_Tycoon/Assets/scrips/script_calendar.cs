@@ -17,7 +17,7 @@ public class script_calendar : MonoBehaviour {
     private float project_day_count;
     private int project_day_max = 60;
     private bool project_running = false;
-    private float project_progress_segment = 25f;
+    private float project_progress_segment = 2f;
 
 
 	// Use this for initialization
@@ -62,7 +62,11 @@ public class script_calendar : MonoBehaviour {
                     {
                         if(project_progress >= project_progress_segment)
                         {
-
+                            //script_GameManager.Instance.manager_gm.events.project_progress(project_progress_segment);
+                            if (script_GameManager.Instance)
+                            {
+                                Debug.Log("works");
+                            }
                             project_progress_segment += 25;
                         }
                     }

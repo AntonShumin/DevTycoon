@@ -33,7 +33,8 @@ public class script_gameEvents : MonoBehaviour {
 
     public void project_progress(float progress)
     {
-
+        script_GameManager.Instance.manager_gm.s_calendar.pause_calendar();
+        script_GameManager.Instance.manager_ui.center_frame.show();
     }
 
 
