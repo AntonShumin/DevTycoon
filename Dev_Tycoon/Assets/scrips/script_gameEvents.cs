@@ -21,7 +21,7 @@ public class script_gameEvents : MonoBehaviour {
     public void set_message(int index)
     {
         Debug.Log(messages[0, 0]);
-        //script_GameManager.Instance.o_MessageManager.set_item(messages[index,0],messages[index,1]);
+        script_GameManager.Instance.manager_ui.message_center.set_item(messages[index, 0], messages[index, 1]);
     }
 
     private void setup_messages()

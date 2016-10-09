@@ -20,9 +20,11 @@ public class script_orbit : MonoBehaviour {
 
     void Awake()
     {
-        Debug.Log("screen_orbit limit FPS");
+        Debug.Log("orbit no fps limit");
+        /*
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 40;
+        */
     }
 
     // Update is called once per frame
