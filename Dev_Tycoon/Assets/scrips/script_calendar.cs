@@ -33,7 +33,7 @@ public class script_calendar : MonoBehaviour {
         string date_prefix = "";
         float project_week;
         float project_progress;
-        script_upperFrame o_upperFrame = script_GameManager.Instance.o_ui.upper_frame;
+        script_upperFrame o_upperFrame = script_GameManager.Instance.manager_ui.upper_frame;
         while (true)
         {
             yield return new WaitForSeconds(day_tick);
