@@ -36,5 +36,11 @@ public class script_gameEvents : MonoBehaviour {
         script_GameManager.Instance.manager_ui.center_frame.show(progress);
     }
 
+    public void project_progress_close()
+    {
+        script_GameManager.Instance.manager_ui.center_frame.close();
+        script_GameManager.Instance.manager_gm.s_calendar.resume_calendar();
+    }
+
 
 }

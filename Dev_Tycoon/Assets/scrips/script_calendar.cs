@@ -79,4 +79,9 @@ public class script_calendar : MonoBehaviour {
 
     }
 
+    public void resume_calendar()
+    {
+        time_running = true;
+    }
+
 }

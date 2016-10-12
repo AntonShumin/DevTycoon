@@ -35,13 +35,21 @@ public class script_buttonsManager : MonoBehaviour {
     {
         if(button == buttons_array[0])
         {
+
             elements_array[1].SetActive(false);
             elements_array[2].SetActive(true);
 
-        }else if(button == buttons_array[6])
+        } else if(button == buttons_array[6])
         {
+
             elements_array[2].SetActive(false);
             elements_array[3].SetActive(true);
+
+        } else if(button == buttons_array[10])
+        {
+            //Close center_frame project progress window
+            script_GameManager.Instance.manager_gm.events.project_progress_close();
+
         }
         
     }
