@@ -17,7 +17,7 @@ public class script_calendar : MonoBehaviour {
     private float project_day_count;
     private int project_day_max = 60;
     private bool project_running = false;
-    private float project_progress_segment = 2f;
+    private float project_progress_segment = 0f;
 
 
 	// Use this for initialization
