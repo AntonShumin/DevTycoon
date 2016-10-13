@@ -14,7 +14,7 @@ public class script_centerFrame : MonoBehaviour {
     public Sprite[] icon  = new Sprite[4];
 
     //presets
-    private string[,] presets = new string[2,2];
+    private string[,] presets = new string[4,2];
 
     void Awake()
     {
@@ -49,6 +49,11 @@ public class script_centerFrame : MonoBehaviour {
         presets[0, 1] = "Gameplay is the most important part of any game. Higher number will greatly influence the <color=yellow>score</color> and the <color=yellow>sales duration</color>.";
         presets[1, 0] = "GRAPHICS DESIGN";
         presets[1, 1] = "Everyone loves fancy graphics. A pretty game is bound to sell a <color=yellow>large amount</color> of units and boost the <color=yellow>awareness</color> of potential players.";
+        presets[2, 0] = "SOUND DESIGN";
+        presets[2, 1] = "Great sound can make an average game good, and a good game great. It's a <color=yellow>multiplier</color> of the gameplay and the visuals.";
+        presets[3, 0] = "POLISH";
+        presets[3, 1] = "All core parts of the game are in place. It's time to clean up the bugs and make it presentable.";
+
     }
 
     public void close()
