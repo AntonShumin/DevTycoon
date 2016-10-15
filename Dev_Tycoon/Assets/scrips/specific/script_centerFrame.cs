@@ -14,7 +14,7 @@ public class script_centerFrame : MonoBehaviour {
     public Sprite[] icon  = new Sprite[4];
 
     //presets
-    private string[,] presets = new string[4,2];
+    private string[,] presets = new string[5,2];
 
     void Awake()
     {
