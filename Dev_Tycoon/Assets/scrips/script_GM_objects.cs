@@ -12,12 +12,15 @@ public class script_GM_objects : MonoBehaviour {
     //input
     public GameObject go_input;
     public script_input input;
+    //characters
+    public script_character_manager characters;
 
     void Awake()
     {
         s_calendar = go_calendar.GetComponent<script_calendar>();
         events = go_events.GetComponent<script_gameEvents>();
         script_GameManager.Instance.setup_objects(0,gameObject);
+        
     }
 
 

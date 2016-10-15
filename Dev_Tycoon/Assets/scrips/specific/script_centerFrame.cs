@@ -61,7 +61,7 @@ public class script_centerFrame : MonoBehaviour {
         presets[1, 0] = "GRAPHICS DESIGN";
         presets[1, 1] = "Everyone loves fancy graphics. A pretty game is bound to sell a <color=yellow>large amount</color> of units and boost the <color=yellow>awareness</color> of potential players.";
         presets[2, 0] = "SOUND DESIGN";
-        presets[2, 1] = "Great sound can make an average game good, and a good game great. It's a <color=yellow>multiplier</color> of the gameplay and the visuals.";
+        presets[2, 1] = "Great sound can make a good product great or ruin an average one. It's a <color=yellow>multiplier</color> of the gameplay and the visuals.";
         presets[3, 0] = "MARKETING";
         presets[3, 1] = "Time to think about marketing. This is also your last chance to improve gameplay, sound and design.";
         presets[4, 0] = "FINAL POLISH";
