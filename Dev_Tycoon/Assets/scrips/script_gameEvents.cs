@@ -16,6 +16,11 @@ public class script_gameEvents : MonoBehaviour {
         set_message(0);
     }
 
+    public void Update()
+    {
+        SkyboxDayNightCycle.Instance.TimeOfDay += Time.deltaTime;
+    }
+
 
     public void set_message(int index)
     {
